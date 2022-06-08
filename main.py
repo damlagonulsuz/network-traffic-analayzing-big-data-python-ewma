@@ -27,7 +27,6 @@ for byte in byteList:
 
     exponential_moving_average.append(exponential_moving_average_value)
 
-# print(exponential_moving_average)
 #
 # data = data.assign(Exponential_moving_average=pd.Series(exponential_moving_average, index=data.index))
 #
