@@ -27,15 +27,16 @@ for byte in byteList:
 
     exponential_moving_average.append(exponential_moving_average_value)
 
-#
-# data = data.assign(Exponential_moving_average=pd.Series(exponential_moving_average, index=data.index))
-#
-# fig1 = plt.figure(figsize=(10,8))
-# ax1 = fig1.add_subplot(111,ylabel='byte')
-# data['byte'].plot(ax=ax1, color='b', lw=3, legend=True)
-# data['Exponential_moving_average'].plot(ax=ax1, color='r', lw=3, legend=True)
-# plt.savefig('exponential_moving_average.png')
-# plt.show()
+print(exponential_moving_average)
+
+data = data.assign(Exponential_moving_average=pd.Series(exponential_moving_average, index=data.index))
+
+fig1 = plt.figure(figsize=(10,8))
+ax1 = fig1.add_subplot(111,ylabel='byte')
+data['byte'].plot(ax=ax1, color='b', lw=3, legend=True)
+data['Exponential_moving_average'].plot(ax=ax1, color='r', lw=3, legend=True)
+plt.savefig('exponential_moving_average.png')
+plt.show()
 
 exponential_moving_average_pandas = data['byte'].ewm(span=time_period, adjust=False).mean()
 
